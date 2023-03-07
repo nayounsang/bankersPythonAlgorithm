@@ -82,3 +82,6 @@ else:
 available[THREAD] = list(sub(available[THREAD], REQ))
 allocation[THREAD] = list(add(allocation[THREAD], REQ))
 need[THREAD] = list(sub(need[THREAD], REQ))
+
+
+#### and run safety, and make decide whether to reject ####
