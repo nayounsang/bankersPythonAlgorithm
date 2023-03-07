@@ -68,5 +68,9 @@ while True:
             finish[t] = True
             change = True
     if not change:
+        if len(seq) == T:
+            print('if you run thread in this sequence, it is safe')
+            print(*seq)
+        else:
+            print('may deadlock, may not deadlock')
         break
-print(*seq)
