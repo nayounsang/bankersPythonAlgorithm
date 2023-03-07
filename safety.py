@@ -1,23 +1,23 @@
 # inputs
-T = 5 # num of thread
-R = 3 # num of resourse
-I = [10,5,7] # instance
+T = 5  # num of thread
+R = 3  # num of resourse
+I = [10, 5, 7]  # instance
 allocation = [
-    [0,1,0],
-    [2,0,0],
-    [3,0,2],
-    [2,1,1],
-    [0,0,2]
-    ]
+    [0, 1, 0],
+    [2, 0, 0],
+    [3, 0, 2],
+    [2, 1, 1],
+    [0, 0, 2]
+]
 maxDemand = [
-    [7,5,3],
-    [3,2,2],
-    [9,0,2],
-    [2,2,2],
-    [4,3,3]
-    ]
-available = [0]*R
-need = [[0]*R for _ in range(T)]
+    [7, 5, 3],
+    [3, 2, 2],
+    [9, 0, 2],
+    [2, 2, 2],
+    [4, 3, 3]
+]
+available = [0] * R
+need = [[0] * R for _ in range(T)]
 
 
 def fillAvailable():
@@ -27,7 +27,7 @@ def fillAvailable():
             tmp += allocation[t][r]
         available[r] = I[r] - tmp
 
-        
+
 def fillNeed():
     for t in range(T):
         for r in range(R):
@@ -40,7 +40,7 @@ def init():
 
 
 def isSmaller(t):
-    for n,w in zip(need[t],work):
+    for n, w in zip(need[t], work):
         if n <= w:
             pass
         else:
@@ -55,7 +55,7 @@ def addWork(t):
 
 fillAvailable()
 fillNeed()
-finish,work = init()
+finish, work = init()
 seq = []
 while True:
     change = False
@@ -68,9 +68,5 @@ while True:
             finish[t] = True
             change = True
     if not change:
-        if len(seq) == T:
-            print('if you run thread in this sequence, it is safe')
-            print(*seq)
-        else:
-            print('may deadlock, may not deadlock')
         break
+print(*seq)
