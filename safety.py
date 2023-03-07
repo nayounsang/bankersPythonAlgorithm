@@ -49,7 +49,7 @@ def isSmaller(t):
 
 
 def addWork(t):
-    for w in range(T):
+    for w in range(R):
         work[w] += allocation[t][w]
 
 
