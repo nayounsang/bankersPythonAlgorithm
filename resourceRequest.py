@@ -74,12 +74,12 @@ if isSmaller(REQ, need[THREAD]):
     pass
 else:
     raise ValueError
-if isSmaller(REQ, available[THREAD]):
+if isSmaller(REQ, available):
     pass
 else:
     print('wait, not available')
     raise ValueError
-available[THREAD] = list(sub(available[THREAD], REQ))
+available[THREAD] = list(sub(available, REQ))
 allocation[THREAD] = list(add(allocation[THREAD], REQ))
 need[THREAD] = list(sub(need[THREAD], REQ))
 
